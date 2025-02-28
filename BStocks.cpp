@@ -170,21 +170,14 @@ class GUI {
                     bin.resetStocks();
                     string input;
                     bool flag = true;
-                    int a = 0, b = 0, j = 0;
+                    int a = 100, b = 200, N = 0;
 
-                    cout << "Enter Stock Price Ranges\n";
-                    cout << "Initial Range: ";
-
+                    cout << "Enter N Number of Generated Stock Prices: ";
                     while(flag) {
                         cin >> input;
-                        a = checkValid(input);
-                        if(a == -1){
-                            prompt();
-                            goto x;
-                        }
-
-                        if(a < 100 || a > 200) {
-                            cout << "Invalid Range, enter any integer between 100 - 200: ";
+                        N = checkValid(input);
+                        if(N == -1){
+                            cout << "Try again: ";
                             cin.clear();
                             cin.ignore(1000, '\n');
                         } else {
@@ -192,42 +185,16 @@ class GUI {
                         }
                     }
 
-                    flag = true;
-
-
-                    cout << "Max Range: ";
-
-                    while(flag) {
-                        cin >> input;
-                        b = checkValid(input);
-                        if(b == -1){
-                            prompt();
-                            goto x;
-                        }
-
-                        if(b < 100 || b > 200) {
-                            cout << "Invalid Range, enter any integer between 100 - 200: ";
-                            cin.clear();
-                            cin.ignore(1000, '\n');
-                        } else {
-                            flag = false;
-                        }
-                    }
-
-                    if (b < a) {
-                        cout << "Invalid! Max range is less than the initial range...\n";
-                        prompt();
-                        goto y;
-                    }
-                
-                    for (int i = a; i < b; i++){
-                        bin.generateStocks(stockNames[j], bin.randomNumb(a,b));
-                        j++;
+                    generateStockNames(N);
+                    for (int i = 0; i < N; i++){
+                        bin.generateStocks(stockNames[i], bin.randomNumb(a,b));
                     }
 
                     cout << "Stock prices generated\n";
+                    cleanupStockNames();
                     x:
                     y:
+                    prompt();
                     break;
                 }
                 case 'B': {
