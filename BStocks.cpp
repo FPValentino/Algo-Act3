@@ -231,7 +231,7 @@ class GUI {
                     break;
                 }
                 default: {
-                    cout << "Please Enter ketters A-D\n";
+                    cout << "Please Enter ketters A-E\n";
                     prompt();
                 }
             }
