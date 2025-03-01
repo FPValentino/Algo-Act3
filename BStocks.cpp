@@ -210,7 +210,7 @@ class GUI {
                         goto z;
                     }
 
-                    //bin.sortStockMerge();
+                    bin.sortStockMerge();
                     bin.findStockBinary(target);
                     prompt();
                     z:
