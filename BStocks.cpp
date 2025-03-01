@@ -145,7 +145,8 @@ class GUI {
 		    cout <<"A. GENERATE STOCKS\n";
 		    cout <<"B. SEARCH STOCK PRICE \n";
 		    cout <<"C. VIEW ALL STOCKS PRICES\n";
-            cout <<"D. EXIT\n";
+            cout <<"D. SORT STOCK PRICES\n";
+            cout <<"E. EXIT\n";
 		    dSpace();
 		    cout <<"Your Choice: ";
 
@@ -209,7 +210,7 @@ class GUI {
                         goto z;
                     }
 
-                    bin.sortStockMerge();
+                    //bin.sortStockMerge();
                     bin.findStockBinary(target);
                     prompt();
                     z:
@@ -220,6 +221,11 @@ class GUI {
                     break;
                 }
                 case 'D': {
+                    bin.sortStockMerge();
+                    prompt();
+                    break;
+                }
+                case 'E': {
                     cout <<"Thank you! Exiting...\n";
                     return;
                     break;
