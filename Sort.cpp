@@ -42,7 +42,12 @@ void Sort::split(Node* source, Node** front, Node** back) {
 }
 
 Node* Sort::mergeSort(Node* head) {
-    if (!head || !head->next) return head;
+    if (!head || !head->next) { 
+        cout << "--------------------------------\n";
+        cout << "Stock list is empty.\n";
+        cout << "--------------------------------\n";
+        return head;
+    } 
 
     Node* left;
     Node* right;
